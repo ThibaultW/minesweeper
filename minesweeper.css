@@ -43,7 +43,7 @@ td.mine-neighbour-8 {
 /* Positioning the Minesweep table and make sure the cells are square */
 table#minesweeper {
   margin: auto;
-  margin-top: 3em;
+  margin-top: 2em;
   border: 1px solid #999;
   border-collapse: collapse;
 }
@@ -53,6 +53,26 @@ table#minesweeper td {
   background-size: cover;
 }
 
-.header {
+@font-face {
+  font-family: Andika;
+  src: url(fonts/AndikaRegular.ttf);
+}
+
+h1 {
+  margin-top: 30px;
   text-align: center;
+  font-family: Andika;
+  font-size: 18px;
+}
+
+.header {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+.padded {
+  padding: 0 10px;
 }
