@@ -11,12 +11,67 @@ $(function(){
   $("#expert").click(function(){
     initGame(16, 30);
   });
-})
+  
+});
+
+function animateSmiley(){
+  switch (getRandomInt(1, 4)) {
+    case 1:
+      winkLeft();
+      break;
+    case 2:
+      winkRight();
+      break;
+    case 3: 
+      blink();
+      break;
+    default:
+      break;
+  };
+  setTimeout(function(){
+    animateSmiley();
+  }, getRandomInt(1, 5)*1000);
+};
+
+function winkLeft(){
+  $("#normal").removeAttr('id');
+  $(".smiley").attr('id', 'wink-left');
+  var timeoutID = setTimeout(function(){
+    $("#wink-left").removeAttr('id');
+    $(".smiley").attr('id', 'normal');
+    clearTimeout(timeoutID);
+  }, 100);
+  
+};
+
+function winkRight(){
+  $("#normal").removeAttr('id');
+  $(".smiley").attr('id', 'wink-right');
+  var timeoutID = setTimeout(function(){
+    $("#wink-right").removeAttr('id');
+    $(".smiley").attr('id', 'normal');
+    clearTimeout(timeoutID);
+  }, 100);
+  
+};
+
+function blink(){
+  $("#normal").removeAttr('id');
+  $(".smiley").attr('id', 'blink');
+  var timeoutID = setTimeout(function(){
+    $("#blink").removeAttr('id');
+    $(".smiley").attr('id', 'normal');
+    clearTimeout(timeoutID);
+  }, 100);
+};
+
 
 function initGame(gridHeight, gridWidth){
   $( "tr" ).remove(); // clear pre-existing grid if any
   
   resetTimer();
+  
+  setTimeout(function(){animateSmiley()}, 2000); // animate smiley 
   
   var minesNumber = Math.round(gridHeight*gridWidth/6.4);
   var minesPosition = generateMinesPosition(gridHeight, gridWidth, minesNumber);
@@ -262,7 +317,7 @@ function generateMinesPosition(gridHeight, gridWidth, minesNumber){
   var numList = generateNumSeq(gridHeight * gridWidth);
   var minesPosition = new Array(minesNumber);
   for (var i = 0; i < minesNumber; i++){
-    var index = getRandomInt(0, gridHeight * gridWidth - i);
+    var index = getRandomInt(1, gridHeight * gridWidth - i);
     minesPosition[i] =  numList[index];
     numList.splice(index, 1);
   }

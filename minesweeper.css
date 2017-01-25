@@ -66,7 +66,7 @@ body {
 }
 
 h1 {
-  margin-top: 30px;
+  margin-top: 1em;
   text-align: center;
   font-family: Andika;
   font-size: 18px;
@@ -76,7 +76,6 @@ h1 {
   margin-top: 30px;
   display: flex;
   justify-content: center;
-
   font-size: 16px;
 }
 
@@ -123,4 +122,30 @@ h1 {
   color: white;
   background-color: #3E4048;
   border-color: #3E4048;
+}
+
+.smiley {
+  width: 175px;
+  height: 175px;
+  margin: 30px auto 0 auto;
+}
+
+#normal {
+  background: url('img/smiley.png');
+  background-size: cover;
+}
+
+#wink-right {
+  background: url('img/smiley_right_wink.png');
+  background-size: cover;
+}
+
+#wink-left {
+  background: url('img/smiley_left_wink.png');
+  background-size: cover;
+}
+
+#blink {
+  background: url('img/smiley_blink.png');
+  background-size: cover;
 }
