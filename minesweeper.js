@@ -1,5 +1,7 @@
 $(function(){
   
+  preloader();
+  
   initGame(8, 8);
   
   $("#easy").click(function(){
@@ -14,18 +16,33 @@ $(function(){
   
 });
 
+function preloader(){
+  // set image list
+  images = new Array();
+  images[0]="img/smiley.png"
+  images[1]="img/smiley_blink.png"
+  images[2]="img/smiley_left_wink.png"
+  images[3]="img/smiley_right_wink.png"
+
+  var i = 0;
+  imageObj = new Image();
+  // start preloading
+  for(i=0; i<=3; i++) 
+  {
+    imageObj.src=images[i];
+  }
+}
+
 function animateSmiley(){
-  switch (getRandomInt(1, 4)) {
+  switch (getRandomInt(1, 7)) {
     case 1:
       winkLeft();
       break;
     case 2:
       winkRight();
       break;
-    case 3: 
+    default: 
       blink();
-      break;
-    default:
       break;
   };
   setTimeout(function(){
@@ -34,33 +51,25 @@ function animateSmiley(){
 };
 
 function winkLeft(){
-  $("#normal").removeAttr('id');
-  $(".smiley").attr('id', 'wink-left');
+  document.getElementById("smiley").src = "img/smiley_left_wink.png";
   var timeoutID = setTimeout(function(){
-    $("#wink-left").removeAttr('id');
-    $(".smiley").attr('id', 'normal');
+    document.getElementById("smiley").src = "img/smiley.png";
     clearTimeout(timeoutID);
   }, 100);
-  
 };
 
 function winkRight(){
-  $("#normal").removeAttr('id');
-  $(".smiley").attr('id', 'wink-right');
+  document.getElementById("smiley").src = "img/smiley_right_wink.png";
   var timeoutID = setTimeout(function(){
-    $("#wink-right").removeAttr('id');
-    $(".smiley").attr('id', 'normal');
+    document.getElementById("smiley").src = "img/smiley.png";
     clearTimeout(timeoutID);
   }, 100);
-  
 };
 
 function blink(){
-  $("#normal").removeAttr('id');
-  $(".smiley").attr('id', 'blink');
+  document.getElementById("smiley").src = "img/smiley_blink.png";
   var timeoutID = setTimeout(function(){
-    $("#blink").removeAttr('id');
-    $(".smiley").attr('id', 'normal');
+    document.getElementById("smiley").src = "img/smiley.png";
     clearTimeout(timeoutID);
   }, 100);
 };

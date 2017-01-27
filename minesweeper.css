@@ -124,28 +124,13 @@ h1 {
   border-color: #3E4048;
 }
 
-.smiley {
-  width: 175px;
-  height: 175px;
+.img-centered {
+  width: 150px;
+  height: 150px;
   margin: 30px auto 0 auto;
 }
 
-#normal {
-  background: url('img/smiley.png');
-  background-size: cover;
-}
-
-#wink-right {
-  background: url('img/smiley_right_wink.png');
-  background-size: cover;
-}
-
-#wink-left {
-  background: url('img/smiley_left_wink.png');
-  background-size: cover;
-}
-
-#blink {
-  background: url('img/smiley_blink.png');
-  background-size: cover;
+.img-centered img {
+  width: 150px;
+  height: 150px;
 }
